@@ -54,6 +54,11 @@ public class Menuprincipal extends javax.swing.JFrame {
         mostrarcanciones.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
         mostrarcanciones.setForeground(new java.awt.Color(0, 0, 0));
         mostrarcanciones.setText("Mostrar Canciones");
+        mostrarcanciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarcancionesActionPerformed(evt);
+            }
+        });
 
         salir.setBackground(new java.awt.Color(255, 255, 255));
         salir.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
@@ -137,6 +142,11 @@ public class Menuprincipal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_agregarcancionesActionPerformed
 
+    private void mostrarcancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarcancionesActionPerformed
+        // TODO add your handling code here:
+        mostrarCanciones mostrar = new mostrarCanciones();
+    }//GEN-LAST:event_mostrarcancionesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -171,6 +181,7 @@ public class Menuprincipal extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarcanciones;

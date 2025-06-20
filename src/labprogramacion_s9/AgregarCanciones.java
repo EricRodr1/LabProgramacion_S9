@@ -10,10 +10,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 import java.awt.Image;
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-private javax.swing.JPanel panelCanciones;
+
 
 
 /**
@@ -21,6 +22,7 @@ private javax.swing.JPanel panelCanciones;
  * @author Eric Rodriguez
  */
 public class AgregarCanciones extends javax.swing.JFrame {
+    private javax.swing.JPanel panelCanciones;
     private JLabel lblImagen = new JLabel();
     private JTunes jTunes = new JTunes (10);
     private ImageIcon imagenSeleccionada = null;
@@ -82,11 +84,11 @@ public class AgregarCanciones extends javax.swing.JFrame {
             }
         });
 
-        cancionIngrese.setForeground(new java.awt.Color(204, 204, 204));
+        cancionIngrese.setForeground(new java.awt.Color(0, 0, 0));
 
-        codigoIngrese.setForeground(new java.awt.Color(204, 204, 204));
+        codigoIngrese.setForeground(new java.awt.Color(0, 0, 0));
 
-        precioIngrese.setForeground(new java.awt.Color(204, 204, 204));
+        precioIngrese.setForeground(new java.awt.Color(0, 0, 0));
 
         finalizar.setBackground(new java.awt.Color(255, 255, 255));
         finalizar.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 12)); // NOI18N
@@ -212,8 +214,10 @@ public class AgregarCanciones extends javax.swing.JFrame {
             boolean agregado =jTunes.addSong(codigo, nombre, precio, imagenSeleccionada);
             if (agregado){
                 JOptionPane.showMessageDialog(this, "Cancion agregada con exito :D");
-                mostrarCanciones();
                 limpiarCampos();
+                Menuprincipal regresarr = new Menuprincipal();
+                regresarr.setVisible(true);
+                this.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(this, "Codigo invalido, favor intente de nuevo");
                 
@@ -257,7 +261,7 @@ public class AgregarCanciones extends javax.swing.JFrame {
             }
         });
     } 
-    private void mostrarCanciones(){
+    public void mostrarCanciones(){
         panelCanciones.removeAll(); //Agregamos las tarjetas
         Song [] canciones = jTunes.getAllSongs();
          
@@ -283,7 +287,7 @@ public class AgregarCanciones extends javax.swing.JFrame {
     }
     
     private void limpiarCampos(){
-        codigoIngrese.setText("");
+    codigoIngrese.setText("");
     cancionIngrese.setText("");
     precioIngrese.setText("");
     imagenSeleccionada = null;
