@@ -3,13 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package labprogramacion_s9;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 import java.awt.Image;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+private javax.swing.JPanel panelCanciones;
+
 
 /**
  *
@@ -55,7 +60,7 @@ public class AgregarCanciones extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agregar Canción");
 
-        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre de la cancion: ");
 
@@ -110,21 +115,21 @@ public class AgregarCanciones extends javax.swing.JFrame {
                         .addComponent(finalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(codigoIngrese, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(cancionIngrese, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addGap(17, 17, 17)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(precioIngrese, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(codigoIngrese, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(11, 11, 11)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(cancionIngrese, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(precioIngrese, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -251,6 +256,38 @@ public class AgregarCanciones extends javax.swing.JFrame {
                 new AgregarCanciones().setVisible(true);
             }
         });
+    } 
+    private void mostrarCanciones(){
+        panelCanciones.removeAll(); //Agregamos las tarjetas
+        Song [] canciones = jTunes.getAllSongs();
+         
+        for(Song s : canciones){
+            JPanel tarjeta = new JPanel();
+            tarjeta.setLayout(new BoxLayout(tarjeta, BoxLayout.Y_AXIS));
+            
+            //Hacemos la imagen escalada
+            Image img = s.getImagenDisco().getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+            JLabel imgLabel = new JLabel (new ImageIcon(img));
+            
+            tarjeta.add(imgLabel);
+            tarjeta.add(new JLabel("Código: " + s.getCodigo()));
+        tarjeta.add(new JLabel("Nombre: " + s.getNombre()));
+        tarjeta.add(new JLabel("Precio: $" + s.getPrecio()));
+        tarjeta.add(new JLabel("Rating: " + String.format("%.2f", s.songRating())));
+
+        tarjeta.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        panelCanciones.add(tarjeta);
+        }
+        panelCanciones.revalidate();
+        panelCanciones.repaint();
+    }
+    
+    private void limpiarCampos(){
+        codigoIngrese.setText("");
+    cancionIngrese.setText("");
+    precioIngrese.setText("");
+    imagenSeleccionada = null;
+    lblImagen.setIcon(null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
