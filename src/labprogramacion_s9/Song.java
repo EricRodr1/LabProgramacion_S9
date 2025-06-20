@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package labprogramacion_s9;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -24,10 +25,17 @@ public class Song {
         this.sumaEstrellas = 0;
         this.totalReviews = 0;
     }
-     public int getCodigo() { return codigo; }
-    public String getNombre() { return nombre; }
-    public double getPrecio() { return precio; }
-    public ImageIcon getImagenDisco() { return imagenDisco; }
+     public int getCodigo() { 
+         return codigo; }
+     
+    public String getNombre() { 
+        return nombre; }
+    
+    public double getPrecio() { 
+        return precio; }
+    
+    public ImageIcon getImagenDisco() { 
+        return imagenDisco; }
 
     public void addStars(int stars) {
         if (stars >= 0 && stars <= 5) {
