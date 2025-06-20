@@ -10,6 +10,7 @@ package labprogramacion_s9;
  */
 public class MainJTunes {
     public static void main(String[] args) {
+        //AQUI SE VA A EJECUTAR EL PROGRAMA
         Menuprincipal visualizar = new Menuprincipal();
         visualizar.setVisible(true);
         visualizar.setLocationRelativeTo(null);

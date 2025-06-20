@@ -31,6 +31,7 @@ public class Menuprincipal extends javax.swing.JFrame {
         agregarcanciones = new javax.swing.JButton();
         mostrarcanciones = new javax.swing.JButton();
         salir = new javax.swing.JButton();
+        calificarcanciones = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,6 +44,11 @@ public class Menuprincipal extends javax.swing.JFrame {
         agregarcanciones.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
         agregarcanciones.setForeground(new java.awt.Color(0, 0, 0));
         agregarcanciones.setText("Agregar Canciones");
+        agregarcanciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarcancionesActionPerformed(evt);
+            }
+        });
 
         mostrarcanciones.setBackground(new java.awt.Color(255, 255, 255));
         mostrarcanciones.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
@@ -58,6 +64,11 @@ public class Menuprincipal extends javax.swing.JFrame {
                 salirActionPerformed(evt);
             }
         });
+
+        calificarcanciones.setBackground(new java.awt.Color(255, 255, 255));
+        calificarcanciones.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        calificarcanciones.setForeground(new java.awt.Color(0, 0, 0));
+        calificarcanciones.setText("Calificar Canciones");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -75,21 +86,28 @@ public class Menuprincipal extends javax.swing.JFrame {
                         .addGap(122, 122, 122)
                         .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(122, 122, 122)
+                        .addComponent(calificarcanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(128, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(168, 168, 168))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(agregarcanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(30, 30, 30)
                 .addComponent(mostrarcanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addComponent(calificarcanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -110,6 +128,14 @@ public class Menuprincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
+
+    private void agregarcancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarcancionesActionPerformed
+        // TODO add your handling code here:
+        AgregarCanciones agregar = new AgregarCanciones();
+        agregar.setVisible(true);
+        agregar.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_agregarcancionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,6 +174,7 @@ public class Menuprincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarcanciones;
+    private javax.swing.JButton calificarcanciones;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton mostrarcanciones;
