@@ -44,23 +44,12 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace min="122" pref="122" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                          <Component id="agregarcanciones" min="-2" pref="193" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                          <Component id="mostrarcanciones" min="-2" pref="193" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                          <Component id="salir" min="-2" pref="193" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                          <Component id="calificarcanciones" min="-2" pref="193" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="agregarcanciones" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                      <Component id="mostrarcanciones" min="-2" pref="193" max="-2" attributes="0"/>
+                      <Component id="salir" min="-2" pref="193" max="-2" attributes="0"/>
+                      <Component id="calificarcanciones" min="-2" pref="193" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="128" max="32767" attributes="0"/>
               </Group>

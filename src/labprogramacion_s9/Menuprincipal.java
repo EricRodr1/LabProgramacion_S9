@@ -4,18 +4,23 @@
  */
 package labprogramacion_s9;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Eric Rodriguez
  */
 public class Menuprincipal extends javax.swing.JFrame {
+     
 
     /**
      * Creates new form Menuprincipal
      */
     public Menuprincipal() {
         initComponents();
+      
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -144,7 +149,7 @@ public class Menuprincipal extends javax.swing.JFrame {
 
     private void mostrarcancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarcancionesActionPerformed
         // TODO add your handling code here:
-        mostrarCanciones mostrar = new mostrarCanciones();
+        
     }//GEN-LAST:event_mostrarcancionesActionPerformed
 
     /**

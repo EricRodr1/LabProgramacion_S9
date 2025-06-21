@@ -30,9 +30,8 @@ public class AgregarCanciones extends javax.swing.JFrame {
     /**
      * Creates new form AgregarCanciones
      */
-    public AgregarCanciones() {
-        initComponents();
-    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -207,17 +206,12 @@ public class AgregarCanciones extends javax.swing.JFrame {
             int codigo = Integer.parseInt(codigoIngrese.getText());
             String nombre = cancionIngrese.getText();
             double precio = Double.parseDouble(precioIngrese.getText());
-            if(imagenSeleccionada == null){
-                JOptionPane.showMessageDialog(this, "Debes seleccionar una imagen ");
-                return;
-            }
+             
             boolean agregado =jTunes.addSong(codigo, nombre, precio, imagenSeleccionada);
             if (agregado){
                 JOptionPane.showMessageDialog(this, "Cancion agregada con exito :D");
                 limpiarCampos();
-                Menuprincipal regresarr = new Menuprincipal();
-                regresarr.setVisible(true);
-                this.setVisible(false);
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Codigo invalido, favor intente de nuevo");
                 
@@ -257,7 +251,7 @@ public class AgregarCanciones extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgregarCanciones().setVisible(true);
+               new AgregarCanciones().setVisible(true);
             }
         });
     } 
@@ -276,7 +270,7 @@ public class AgregarCanciones extends javax.swing.JFrame {
             tarjeta.add(imgLabel);
             tarjeta.add(new JLabel("Código: " + s.getCodigo()));
         tarjeta.add(new JLabel("Nombre: " + s.getNombre()));
-        tarjeta.add(new JLabel("Precio: $" + s.getPrecio()));
+        tarjeta.add(new JLabel("Precio: Lps. " + s.getPrecio()));
         tarjeta.add(new JLabel("Rating: " + String.format("%.2f", s.songRating())));
 
         tarjeta.setBorder(BorderFactory.createLineBorder(Color.GRAY));
