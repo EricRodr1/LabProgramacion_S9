@@ -24,13 +24,15 @@ import javax.swing.JPanel;
 public class AgregarCanciones extends javax.swing.JFrame {
     private javax.swing.JPanel panelCanciones;
     private JLabel lblImagen = new JLabel();
-    private JTunes jTunes = new JTunes (10);
+    private JTunes jTunes = JTunesManager.getInstance();
     private ImageIcon imagenSeleccionada = null;
 
     /**
      * Creates new form AgregarCanciones
      */
-    
+    public AgregarCanciones() {
+        initComponents();
+    }
     
 
     /**
@@ -191,10 +193,10 @@ public class AgregarCanciones extends javax.swing.JFrame {
         if (archivo != null) {
             imagenSeleccionada = new ImageIcon(archivo.getAbsolutePath());
 
-            // Escalar la imagen a 100x100 para mostrarla
+            // Mostramos la imagen
             Image imgEscalada = imagenSeleccionada.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 
-            // Asignar al JLabel
+            // Asignamos al JLabel
             lblImagen.setIcon(new ImageIcon(imgEscalada));
         }
     }
@@ -207,10 +209,16 @@ public class AgregarCanciones extends javax.swing.JFrame {
             String nombre = cancionIngrese.getText();
             double precio = Double.parseDouble(precioIngrese.getText());
              
-            boolean agregado =jTunes.addSong(codigo, nombre, precio, imagenSeleccionada);
+            boolean agregado = jTunes.addSong(codigo, nombre, precio, imagenSeleccionada);
             if (agregado){
                 JOptionPane.showMessageDialog(this, "Cancion agregada con exito :D");
                 limpiarCampos();
+                
+                // Regresar al menú principal
+                Menuprincipal volver = new Menuprincipal();
+                volver.setVisible(true);
+                volver.setLocationRelativeTo(null);
+                this.setVisible(false);
                 
             } else {
                 JOptionPane.showMessageDialog(this, "Codigo invalido, favor intente de nuevo");
@@ -219,6 +227,7 @@ public class AgregarCanciones extends javax.swing.JFrame {
         } catch (NumberFormatException e){ //Aqui comprobamos que no se ingrese un precio o un codigo invalido 
             JOptionPane.showMessageDialog(this, "El codigo o el precio ingresado son invalidos, intente de nuevo");
         }
+        
     }//GEN-LAST:event_finalizarActionPerformed
 
     /**
@@ -256,7 +265,7 @@ public class AgregarCanciones extends javax.swing.JFrame {
         });
     } 
     public void mostrarCanciones(){
-        panelCanciones.removeAll(); //Agregamos las tarjetas
+      panelCanciones.removeAll(); //Agregamos las tarjetas
         Song [] canciones = jTunes.getAllSongs();
          
         for(Song s : canciones){
@@ -287,6 +296,8 @@ public class AgregarCanciones extends javax.swing.JFrame {
     imagenSeleccionada = null;
     lblImagen.setIcon(null);
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarimagen;

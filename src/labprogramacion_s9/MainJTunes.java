@@ -10,7 +10,10 @@ package labprogramacion_s9;
  */
 public class MainJTunes {
     public static void main(String[] args) {
-        //AQUI SE VA A EJECUTAR EL PROGRAMA
+        // Inicializar la instancia de JTunes
+        JTunesManager.getInstance();
+        
+        // Crear y mostrar la interfaz gráfica principal
         Menuprincipal visualizar = new Menuprincipal();
         visualizar.setVisible(true);
         visualizar.setLocationRelativeTo(null);

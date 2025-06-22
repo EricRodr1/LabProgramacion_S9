@@ -46,5 +46,4 @@ public class Song {
      public double songRating() {
         return totalReviews == 0 ? 0.0 : (double) sumaEstrellas / totalReviews;
     }
-
 }

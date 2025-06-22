@@ -3,22 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package labprogramacion_s9;
+ 
+import javax.swing.JPanel;
 
-import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author Eric Rodriguez
  */
 public class Menuprincipal extends javax.swing.JFrame {
-     
+
+
+
 
     /**
      * Creates new form Menuprincipal
      */
     public Menuprincipal() {
         initComponents();
-      
+       
     }
     
 
@@ -79,25 +83,23 @@ public class Menuprincipal extends javax.swing.JFrame {
         calificarcanciones.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
         calificarcanciones.setForeground(new java.awt.Color(0, 0, 0));
         calificarcanciones.setText("Calificar Canciones");
+        calificarcanciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calificarcancionesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(122, 122, 122)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(agregarcanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(mostrarcanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(calificarcanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(agregarcanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mostrarcanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(calificarcanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(128, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -149,8 +151,20 @@ public class Menuprincipal extends javax.swing.JFrame {
 
     private void mostrarcancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarcancionesActionPerformed
         // TODO add your handling code here:
-        
+        MostrarCanciones mostrar = new MostrarCanciones();
+        mostrar.setVisible(true);
+        mostrar.setLocationRelativeTo(null);
+        this.setVisible(false);
+    
     }//GEN-LAST:event_mostrarcancionesActionPerformed
+
+    private void calificarcancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calificarcancionesActionPerformed
+        // TODO add your handling code here:
+        CalificarCanciones cal = new CalificarCanciones();
+        cal.setVisible(true);
+        cal.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_calificarcancionesActionPerformed
 
     /**
      * @param args the command line arguments
